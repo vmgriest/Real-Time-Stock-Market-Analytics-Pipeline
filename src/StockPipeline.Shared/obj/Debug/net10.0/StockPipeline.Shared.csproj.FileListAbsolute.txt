@@ -1,0 +1,12 @@
+C:\Users\vmgri\Real-Time-Stock-Market-Analytics-Pipeline\src\StockPipeline.Shared\bin\Debug\net10.0\StockPipeline.Shared.deps.json
+C:\Users\vmgri\Real-Time-Stock-Market-Analytics-Pipeline\src\StockPipeline.Shared\bin\Debug\net10.0\StockPipeline.Shared.dll
+C:\Users\vmgri\Real-Time-Stock-Market-Analytics-Pipeline\src\StockPipeline.Shared\bin\Debug\net10.0\StockPipeline.Shared.pdb
+C:\Users\vmgri\Real-Time-Stock-Market-Analytics-Pipeline\src\StockPipeline.Shared\obj\Debug\net10.0\StockPipeline.Shared.csproj.AssemblyReference.cache
+C:\Users\vmgri\Real-Time-Stock-Market-Analytics-Pipeline\src\StockPipeline.Shared\obj\Debug\net10.0\StockPipeline.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vmgri\Real-Time-Stock-Market-Analytics-Pipeline\src\StockPipeline.Shared\obj\Debug\net10.0\StockPipeline.Shared.AssemblyInfoInputs.cache
+C:\Users\vmgri\Real-Time-Stock-Market-Analytics-Pipeline\src\StockPipeline.Shared\obj\Debug\net10.0\StockPipeline.Shared.AssemblyInfo.cs
+C:\Users\vmgri\Real-Time-Stock-Market-Analytics-Pipeline\src\StockPipeline.Shared\obj\Debug\net10.0\StockPipeline.Shared.csproj.CoreCompileInputs.cache
+C:\Users\vmgri\Real-Time-Stock-Market-Analytics-Pipeline\src\StockPipeline.Shared\obj\Debug\net10.0\StockPipeline.Shared.dll
+C:\Users\vmgri\Real-Time-Stock-Market-Analytics-Pipeline\src\StockPipeline.Shared\obj\Debug\net10.0\refint\StockPipeline.Shared.dll
+C:\Users\vmgri\Real-Time-Stock-Market-Analytics-Pipeline\src\StockPipeline.Shared\obj\Debug\net10.0\StockPipeline.Shared.pdb
+C:\Users\vmgri\Real-Time-Stock-Market-Analytics-Pipeline\src\StockPipeline.Shared\obj\Debug\net10.0\ref\StockPipeline.Shared.dll

@@ -1,0 +1,95 @@
+{
+  "annotations": { "list": [] },
+  "description": "Real-Time Stock Market Analytics Pipeline",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "panels": [
+    {
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "StockDB" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": { "lineWidth": 2, "fillOpacity": 5 }
+        }
+      },
+      "gridPos": { "h": 9, "w": 24, "x": 0, "y": 0 },
+      "id": 1,
+      "options": {
+        "legend": { "calcs": ["last", "min", "max"], "displayMode": "table", "placement": "bottom" },
+        "tooltip": { "mode": "multi" }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "StockDB" },
+          "format": "time_series",
+          "rawSql": "SELECT\n  processed_at AS time,\n  price,\n  symbol\nFROM moving_averages\nWHERE $__timeFilter(processed_at)\nORDER BY time",
+          "refId": "A"
+        }
+      ],
+      "title": "Stock Prices",
+      "type": "timeseries"
+    },
+    {
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "StockDB" },
+      "fieldConfig": {
+        "defaults": {
+          "color": { "mode": "palette-classic" },
+          "custom": { "lineWidth": 2 }
+        }
+      },
+      "gridPos": { "h": 9, "w": 24, "x": 0, "y": 9 },
+      "id": 2,
+      "options": {
+        "legend": { "calcs": ["last"], "displayMode": "table", "placement": "bottom" },
+        "tooltip": { "mode": "multi" }
+      },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "StockDB" },
+          "format": "time_series",
+          "rawSql": "SELECT\n  processed_at AS time,\n  price AS \"Price\",\n  ma_5 AS \"MA-5\",\n  ma_20 AS \"MA-20\",\n  ma_50 AS \"MA-50\"\nFROM moving_averages\nWHERE $__timeFilter(processed_at)\n  AND symbol = 'AAPL'\nORDER BY time",
+          "refId": "A"
+        }
+      ],
+      "title": "Moving Averages — AAPL",
+      "type": "timeseries"
+    },
+    {
+      "datasource": { "type": "grafana-postgresql-datasource", "uid": "StockDB" },
+      "fieldConfig": {
+        "defaults": { "custom": { "align": "auto" } },
+        "overrides": [
+          {
+            "matcher": { "id": "byName", "options": "Change %" },
+            "properties": [
+              { "id": "custom.displayMode", "value": "color-text" },
+              { "id": "thresholds", "value": { "mode": "absolute", "steps": [{ "color": "red", "value": null }, { "color": "green", "value": 0 }] } }
+            ]
+          }
+        ]
+      },
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 18 },
+      "id": 3,
+      "options": { "footer": { "show": false }, "showHeader": true },
+      "targets": [
+        {
+          "datasource": { "type": "grafana-postgresql-datasource", "uid": "StockDB" },
+          "format": "table",
+          "rawSql": "SELECT DISTINCT ON (symbol)\n  symbol AS \"Symbol\",\n  ROUND(price, 2) AS \"Price\",\n  ROUND(ma_5, 2) AS \"MA-5\",\n  ROUND(ma_20, 2) AS \"MA-20\",\n  ROUND(ma_50, 2) AS \"MA-50\",\n  ROUND(price_change_pct, 4) AS \"Change %\",\n  processed_at AS \"Last Updated\"\nFROM moving_averages\nORDER BY symbol, processed_at DESC",
+          "refId": "A"
+        }
+      ],
+      "title": "Current Snapshot",
+      "type": "table"
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 38,
+  "tags": ["stocks", "kafka", "realtime"],
+  "time": { "from": "now-6h", "to": "now" },
+  "timepicker": {},
+  "title": "Real-Time Stock Pipeline",
+  "uid": "stock-pipeline-v1",
+  "version": 1
+}
