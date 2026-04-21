@@ -1,0 +1,31 @@
+# Build output
+bin/
+obj/
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+
+# User-specific
+*.user
+*.suo
+.vs/
+*.rsuser
+
+# Rider
+.idea/
+
+# Environment / secrets
+appsettings.Development.json
+*.env
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker volumes (if mounted locally)
+postgres_data/
+grafana_data/
